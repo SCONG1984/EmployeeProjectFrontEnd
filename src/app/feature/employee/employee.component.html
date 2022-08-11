@@ -1,0 +1,34 @@
+
+<table>
+    <tr>
+        <td style="width: 20px;"></td>
+        <td>
+            <div>
+                <h2><b><u>Employee Info</u></b></h2>
+                <p><i>User Story # 10001</i></p>
+            </div>            
+            <div style="width: 1200px;">
+                <p-table styleClass="p-datatable-striped" [value]="employeeList" [paginator]="true" [rows]="rows" [showCurrentPageReport]="true" [(first)]="first" responsiveLayout="scroll"
+                    currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [rowsPerPageOptions]="[5,10,20]">   
+                    <ng-template pTemplate="header">
+                        <tr>
+                            <th>Employee Number</th>
+                            <th>First Name</th>
+                            <th>Last Name </th>
+                            <th>Employee Status</th>
+                        </tr>
+                    </ng-template>
+                    <ng-template pTemplate="body" let-employee>
+                        <tr>
+                            <td>{{employee.employeeNumber}}</td>
+                            <td>{{employee.firstName}}</td>
+                            <td>{{employee.lastName}}</td>
+                            <td [ngStyle]="{'color':employee.status === 'Regular' ? 'green' : 'yellow' }">{{employee.status }}</td>
+                        </tr>
+                    </ng-template>
+                </p-table>    
+            </div>
+            
+        </td>
+    </tr>
+</table>
